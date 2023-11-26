@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->foreignId('category_id')->constrained('categories');
             $table->integer('category_quantity');
-            $table->string('image')->nullable();
+            $table->string('images')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
