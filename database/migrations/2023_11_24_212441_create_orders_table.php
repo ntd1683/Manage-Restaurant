@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('cashier_id')->constrained('users');
             $table->foreignId('table_id')->constrained();
+            $table->string('customer_name')->nullable();
             $table->dateTime('order_time')->useCurrentOnUpdate();
             $table->integer('total_price');
             $table->foreignId('discount_id')->nullable()->constrained();
