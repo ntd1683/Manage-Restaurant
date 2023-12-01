@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 body {
     -webkit-tap-highlight-color: transparent;
     overflow-x: hidden;
@@ -15,6 +14,13 @@ body {
     color: hsl(var(--twc-default-800) / var(--twc-default-800-opacity, var(--tw-text-opacity)));
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale
+}
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
 }
 
 :is(.dark body) {
@@ -41,4 +47,64 @@ header.nav-sticky {
         --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
         box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
     }
+}
+
+
+.menu .active {
+    color: #f58220 !important
+}
+
+.menu .hs-dropdown-menu .active {
+    background-color: hsl(var(--twc-default-200) / .5)
+}
+
+.admin-menu .active {
+    background-color: #f582201a !important;
+    --tw-text-opacity: 1 !important;
+    color: rgb(245 130 32 / var(--tw-text-opacity)) !important
+}
+
+.admin-menu [data-hs-collapse].active {
+    background-color: hsl(var(--twc-default-200) / .5) !important;
+    --tw-text-opacity: 1 !important;
+    color: hsl(var(--twc-default-700) / var(--twc-default-700-opacity, var(--tw-text-opacity))) !important
+}
+
+@media (min-width: 1024px) {
+    .page-content {
+        min-height: calc(100vh - 146px)
+    }
+}
+
+.custom-scroll {
+    overflow-y: auto
+}
+
+.custom-scroll::-webkit-scrollbar {
+    -webkit-appearance: none
+}
+
+.custom-scroll::-webkit-scrollbar:vertical {
+    width: 5px
+}
+
+.custom-scroll::-webkit-scrollbar:horizontal {
+    height: 5px
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+    border-radius: .5rem;
+    border-width: 2px;
+    border-color: hsl(var(--twc-default-900) / .1);
+    background-color: hsl(var(--twc-default-900) / .1);
+    opacity: .5
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+    border-radius: .5rem;
+    background-color: transparent
+}
+
+.custom-scroll::-webkit-scrollbar-corner {
+    background-color: transparent
 }

@@ -1,8 +1,15 @@
 <x-user.layouts.app>
+    @push("css")
+        <style>
+            .bg-offer {
+                background-image : url("{{ asset("images/offer-bg.png") }}") !important;
+            }
+        </style>
+    @endpush
     <!-- Mobile Nav (Bottom Navbar) -->
     <div class="flex lg:hidden">
-        <div class="fixed inset-x-0 bottom-0 h-16 w-full grid grid-cols-3 items-center justify-items-center border-t border-default-200 bg-white dark:bg-default-50 z-40">
-            <a href="home.html" class="flex flex-col items-center justify-center gap-1 text-default-600" type="button">
+        <div class="fixed inset-x-0 bottom-0 h-16 w-full grid grid-cols-4 items-center justify-items-center border-t border-default-200 bg-white dark:bg-default-50 z-40">
+            <a href="{{ route("home") }}" class="flex flex-col items-center justify-center gap-1 text-default-600" type="button">
                 <i class="fa-solid fa-house text-lg"></i>
                 <span class="text-xs font-medium">Home</span>
             </a>
@@ -14,101 +21,10 @@
                 <i class="fa-regular fa-heart text-lg"></i>
                 <span class="text-xs font-medium">Wishlist</span>
             </a>
-        </div>
-    </div>
-
-    <!-- Mobile Menu (Sidebar Menu) -->
-    <div id="mobile-menu" class="hs-overlay hs-overlay-open:translate-x-0 hidden -translate-x-full fixed top-0 left-0 transition-all transform h-full max-w-[270px] w-full z-60  border-r border-default-200 bg-white dark:bg-default-50" tabindex="-1">
-        <div class="flex justify-center items-center border-b border-dashed border-default-200 h-16 transition-all duration-300">
-            <a href="home.html">
-                <img src="assets/logo-dark-6dbab3e1.png" alt="logo" class="h-10 flex dark:hidden">
-                <img src="assets/logo-light-35c89c2c.png" alt="logo" class="h-10 hidden dark:flex">
+            <a href="wishlist.html" class="flex flex-col items-center justify-center gap-1 text-default-600" type="button">
+                <i class="fas fa-camera-retro"></i>
+                <span class="text-xs font-medium">Camera Scan</span>
             </a>
-        </div>
-        <div class="h-[calc(100%-4rem)]" data-simplebar>
-            <nav class="hs-accordion-group p-4 w-full flex flex-col flex-wrap">
-                <ul class="space-y-2.5">
-                    <li>
-                        <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm font-medium text-default-700 rounded-md hover:bg-default-100" href="home.html">
-                            Home
-                        </a>
-                    </li>
-
-                    <li class="hs-accordion" id="product-categories-accordion">
-                        <a class="hs-accordion-toggle flex items-center gap-x-3.5 py-2 px-2.5 hs-accordion-active:text-primary hs-accordion-active:bg-default-100 text-sm font-medium text-default-700 rounded-md hover:bg-default-100" href="javascript:;">
-                            Product <i data-lucide="chevron-down" class="w-5 h-5 ms-auto hs-accordion-active:rotate-180 transition-all"></i>
-                        </a>
-
-                        <div id="product-categories-accordion" class="hs-accordion-content w-full overflow-hidden transition-[height] hidden">
-                            <ul class="pt-2 ps-2">
-                                <li>
-                                    <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm font-medium text-default-700 rounded-md hover:bg-default-100" href="product-grid.html">
-                                        Product Grid
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm font-medium text-default-700 rounded-md hover:bg-default-100" href="product-list.html">
-                                        Product List
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm font-medium text-default-700 rounded-md hover:bg-default-100" href="product-detail.html">
-                                        Product Details
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-
-                    <li>
-                        <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm font-medium text-default-700 rounded-md hover:bg-default-100" href="wishlist.html">
-                            My Wishlist
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm font-medium text-default-700 rounded-md hover:bg-default-100" href="contact-us.html">
-                            Contact Us
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm font-medium text-default-700 rounded-md hover:bg-default-100" href="faqs.html">
-                            FAQs
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm font-medium text-default-700 rounded-md hover:bg-default-100" href="error-404.html">
-                            Error Page
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm font-medium text-default-700 rounded-md hover:bg-default-100" href="auth-login.html">
-                            Login
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm font-medium text-default-700 rounded-md hover:bg-default-100" href="auth-register.html">
-                            Register
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm font-medium text-default-700 rounded-md hover:bg-default-100" href="auth-recoverpw.html">
-                            Forgot Password
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm font-medium text-default-700 rounded-md hover:bg-default-100" href="auth-reset-password.html">
-                            Reset Password
-                        </a>
-                    </li>
-                </ul>
-            </nav>
         </div>
     </div>
 
@@ -163,14 +79,14 @@
 
                 <div class="relative flex items-center justify-center py-20">
                     <span class="absolute top-0 start-0 text-3xl -rotate-[40deg]">🔥</span>
-                    <span class="absolute top-0 end-[10%] -rotate-12 h-14 w-14 inline-flex items-center justify-center bg-yellow-400 text-white rounded-lg">
+                    <span class="absolute top-0 end-[10%] -rotate-12 h-14 w-14 inline-flex items-center justify-center bg-primary-300 text-white rounded-lg">
                         <i data-lucide="clock-3" class="h-6 w-6"></i>
                     </span>
                     <span class="absolute top-1/4 end-0 -rotate-12 h-4 w-4 inline-flex items-center justify-center bg-primary text-white rounded"></span>
                     <div class="absolute bottom-1/4 -end-0 2xl:-end-24 hidden md:block lg:hidden xl:block">
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAACpCAMAAACCueo0AAAAQlBMVEUAAAD/xwD/xwD/ywD/xwD/xgD/xwD/xwD/xgD/xgD/xwD/xwD/xwD/xwD/xQD/wwD/xwD/xwD/xwD/yAD/xgD/xwBcJNpgAAAAFXRSTlMAIN8Q72C/nzCQcFDPQIBAgI+vf6De6s6XAAADjklEQVRo3u2a626jMBCFPb7hGzQhnfd/1XUEuwQoWzscS6ma86eVqn6ZwZ5rEEKJBuqkgzMNM18VGioz1Quw6JO5E3CZoMRPUidvcCbdbwGcmjI1EZrqM1XCqZdM1R9oatQZG9FUki0CgZKO4rfLjVc81LY4rsAtqJcfRr01oRo49RNfD7MG/7NKVwuFq4IzI7OFQ/ulxoKva4BTPzPVoaEqMUv4YZFudVgfcOoF/1SzYi9+uz4inkmnw1U5Y4Kaf51+ulP3SoVR8l2juEsya3uNTownAuvGk+YKrXiWzFAenoTKO0GnsZvdvyTN/6TpOWiQNmz+VfWDzWT7TIel/nsOvVH3HGBsMnX9fvi+GbxLFmNddtB/nwS9rMCSLJmhFAky5dixYi7L2KLCZeoK0SVjU8ntHOoWDzIWGFrqfJdMeRk2xclKP1pjxKHI2tJcoR+TlQEN85fHWI2gYb7P/qv1MA+otHKVrHsNGQ38OpxJfk0lm1yV/1JsqfsEF6vypMoOqy3V76eQutnGstx5SntoXYyqWHCnJyhA7aEGMjCHFOFQ2hRwd8+4Fbp+1VUpuW7ila6DMvNXQbEpMdHTeajwS6qpFy1xunsAw4nkZw+nGHr+Bo5F6yylqnLfcDxwrRJNqFkzfxwW0G51U3XNQvz4j9saWZ5Pu+IaaYtNNar041vMtJ8Fplb346RBa3PJdvVUZUG/na7fJwb1ELkFUJLftrF25TF5B+jht71GkZ3sYNuxhWmKG9hF5nronStgzsG5ZrjjZ6YyU5uyfON2gaXDUcxJ91yr7zKVuy+NpUCl6TbuT2OLVTdTdUdGv3fT36npXyQHC1hLzld8nqtnGcRyb3BTxE2yUUC/ltGpMy+xl29hhAGvcJfch1YCV7sl9cO070te+yuMv+3by5+TanROVsDlpRNvvbrcQHAmyQb36cacGhjKpoGhEm4oNzC0a2MoPuk1eStIsyY4NHbvN42Aoi4A4jEe7L5PqN9syq7MTIB4DJvvLwdE7KR1F+8BLdgmyp2FZCN8G6J5MRX5YjH8LeBxgmoF7RVnDWjv0UdlZ6YmZCWaFRp4303bBaj3Uk3rH2mA3pMQYcYbAnk/CLL8V/J2Epvm9z6C5kd1dNp76ezCOx+0foLqDVKfslTyXtr36uQ4tydC0vMiuRBB3ttLLxDqF2IgXKs8ExW2rdUWvVDzL7Kie+utt36V/gAoj0UJQoRlYQAAAABJRU5ErkJggg==">
+                        <img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAACpCAYAAAC1ZxoGAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFyWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgOS4xLWMwMDEgNzkuMTQ2Mjg5OSwgMjAyMy8wNi8yNS0yMDowMTo1NSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0RXZ0PSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VFdmVudCMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDI1LjEgKFdpbmRvd3MpIiB4bXA6Q3JlYXRlRGF0ZT0iMjAyMy0xMS0yN1QwMzozODowNyswNzowMCIgeG1wOk1vZGlmeURhdGU9IjIwMjMtMTEtMjdUMDM6NDE6MDcrMDc6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjMtMTEtMjdUMDM6NDE6MDcrMDc6MDAiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOmEyZTNhYTJjLWE0MGEtOTY0NC1iMDhlLTcxMDNiZDhhOWYxOSIgeG1wTU06RG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOmM3Mjc1NDM1LTMyMjktZmU0Yi04MTkzLTFlOWEzOTJiMmQ1NiIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ4bXAuZGlkOmI1M2E3MjRjLTQ0MjgtYTQ0Mi1hZmRhLTMxMWMyNTcyMzZiZCI+IDx4bXBNTTpIaXN0b3J5PiA8cmRmOlNlcT4gPHJkZjpsaSBzdEV2dDphY3Rpb249ImNyZWF0ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6YjUzYTcyNGMtNDQyOC1hNDQyLWFmZGEtMzExYzI1NzIzNmJkIiBzdEV2dDp3aGVuPSIyMDIzLTExLTI3VDAzOjM4OjA3KzA3OjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgMjUuMSAoV2luZG93cykiLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOmEyZTNhYTJjLWE0MGEtOTY0NC1iMDhlLTcxMDNiZDhhOWYxOSIgc3RFdnQ6d2hlbj0iMjAyMy0xMS0yN1QwMzo0MTowNyswNzowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDI1LjEgKFdpbmRvd3MpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+IDwvcmRmOlNlcT4gPC94bXBNTTpIaXN0b3J5PiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pt0U5k0AAAXtSURBVHic7Z3NctMwEIBXbg8UboHhAZLp0e//ID4CeQBmkhvphVgcUgVVkWzJXkm78n4nCKVVP6+k1a8BAOAwnC4goKAAAPbDWZsPjv1O1SsOf5Qt8/4h6Ldf/dfPNQrEnc73oQb1UrogrdBJFcelA7i1m7ZYBfqtXpEEwSKqupuOS4HWv/qv3nZXuDEr1JcFSLsbJilCXUTsI9FCRGoc0e1hSNzr8PsPXnH4kxxdEqnTJPfYIm6aRSmQSBUErqBX3a3PrWYdRoYygpbJPi7fmtQsVXLL4/9sv+RWpWar8j55h+E05vp5VMgeMVuL1OydUsvyfBSZfT/2O9XBaGb9Zb1KEKpRtX2zFv+a2alSbQXT7v1b2qlCZkm4lSEqiSpvwz3Nql741qRWr/K+vJTzBuDqQn29O+dOqrpQAH8V57reT0IowKPUKzw3kZdWZz+cdSsplCAIybwOv/9wagJIJ9CuSA4JP3oBD8Pp4uaRodkk87Whf3eFPsHfy4/++xfsMmOyWqhPoA9fdM1V5WO/eziYRn2q73nNfz4Mp1GDWvRQbg9imsApv09Lfl4pViX2sTJ94/WlUTZC5z1OSYVVEeojpeOwv9Y0HR2MeoSOfOcTIqrgh+F06eCqS3cI9hLJXDtNJQNIPqdUs+AxVb222Mk2lHJbFaL2XEBQKEWZx36nTAc3F4m1xAYLxW1pYkpeyXJ7fxA3mTa1yz6bh3Ywai4yAeo/+KjhYO1ChqB4QGI2QqkU1GVNh5Ozw5oUSnnrofugYxf1bJE5xD4MPalG5BxrFvX2wxmtnyCz6olBzAaJkDisSGUt1JXTwTVKSk6prIW6pFT7XFLvQk0DXXssXJIct1Swj1A3E0ndaOaTuqaD6/7/YWQZle7M/5KVAMzMxjtjz02umYBekzdjSUVfAqkBpVVQ9m0oNe4Rai+McV4kwyZ1AkYidAI3fYxJJ5toQwHyTOXFrLa63COU8sxSLWL2W7nchVLqKSkRuEghOHj4UOW5Tt3lHiq7VX9qf5V0ShG4tXdqf5UIjSS29nqFHobThetpttrD5geh++GsNagXDeqF4zSegjFbtrKJxN596Ll3CBqpIbkPQpeuJtaiRv48FamzEUr9iKDdA1MYnHhNuwcROJy+oII3Qt28i3qU1uIwnC5ukxjdKXHs8XOjQb1c4fmz7SYolPIwlOLqrMnb2e1tWjJHWQLT50wKpTYDRUXeFLMTzFSqPpc3PLAYKXGRCbDw8GzJncPUZbrlS47Qkp1CaMaLikwfyUJ9PX/JzoKyTACEKu+C/QtTPJhg83ieH+kbuaT88u9V+5MGpShKm8J94KsKP3Wbw5QYc7o5NEfATarNqo0OJvGPaUM/XsAKcG1nj8UHUPJQ+821a9d0OEcnQMFrhqaimPrFLEJh7HyZdfWigF3zFOg3FmN5LtwuoRHQeIK/FxGKyAhP6xL7reO7MUgiFBkRioQZ0IhQJMwmNRG6EHfye4Sn96G3sAh3ls0MnUXoQrhP4giCIFBEGtZE9sNZm2uNfR2T9PIJmLH71PF3EZqAAr2d4925uZ3fmkciNBI3OkOJvURoBLHRCSARuohVB7+2ju+NOVNfL0ITmTsAJ0KREaEJyJSdIAgO0iZYYOznb6pTOgynEetEytKbLJoR+n75jAJY9n5690EsvSOgGaE2qRcAHobTaP99zQtlmhSaivv2x5/9t8VemhDqazdT2kA7Gtcm781O36W2gfIukAhq3DnFXuhUmlTjNh/2QucofSkia6Exskq/nJq10Jh8s/QV8qyFUoTt5EjsmL30pHCzeSjA4+vWocAlB80Kte9GcdfVTXTnEMuyyqe8Fr1009Cc0A5G/bP/1qXOiyrQGqM5aE7osd8F75hPYalYdkJL3REl86FEaLaXXwLG3SesqnyO6o6dOm0yQiWxR6DUEJRNlV9S3Wts7moqQilcqMVeKAWJNiyFUpNoo3T0+QYhBhkpISNCkRGhyIhQZEQoMiIUGRGKjAhFRoQiI0KREaHIiFBk/gEQNf7ScI73bAAAAABJRU5ErkJggg=='/>
                         <div class="flex items-center gap-2 p-2 pe-6 bg-default-50 rounded-full shadow-lg">
-                            <img src="assets/avatar1-25906796.png" class="h-16 w-16 rounded-full">
+                            <img src="{{ asset("images/mixi.png") }}" class="h-16 w-16 rounded-full">
                             <div class="">
                                 <h6 class="text-sm font-medium text-default-900">Jakob Culhane</h6>
                                 <p class="text-[10px] font-medium text-default-900">Healthy and Delicious Food</p>
@@ -188,7 +104,7 @@
                     <span class="absolute -bottom-16 end-1/3 text-3xl">🔥</span>
                     <div class="absolute bottom-0 start-0">
                         <div class="flex items-center gap-2 p-2 pe-6 bg-default-50 rounded-full shadow-lg">
-                            <span class="inline-flex items-center justify-center h-16 w-16 bg-primary/20 rounded-full"><img src="assets/burger-1-0c3ba5a6.svg" class="h-10 w-10 rounded-full"></span>
+                            <span class="inline-flex items-center justify-center h-16 w-16 bg-primary/20 rounded-full"><img src="{{ asset("images/bbq-chicken.png") }}" class="h-10 w-10 rounded-full"></span>
                             <div class="">
                                 <h6 class="text-sm font-medium text-default-900">MCD Veg Burger</h6>
                                 <span class="inline-flex gap-0.5">
@@ -204,7 +120,7 @@
                     </div>
                     <!-- end icons && img -->
 
-                    <img src="assets/hero-f578fbc8.png" class="mx-auto">
+                    <img src="{{ asset('images/hot-food.png') }}" class="mx-auto">
                 </div><!-- end grid-col -->
             </div><!-- end grid -->
         </div><!-- end container -->
@@ -215,7 +131,7 @@
         <div class="container">
             <div class="grid lg:grid-cols-2 items-start gap-10">
                 <div class="flex items-center justify-center h-full w-full bg-default-500/5 rounded-lg">
-                    <img src="assets/about-us-d5778dfe.png" class="h-full w-full">
+                    <img src="{{ asset("images/background-restaurant.jpg") }}" class="h-full w-full ">
                 </div>
                 <div class="">
                     <span class="inline-flex py-2 px-4 text-sm text-primary rounded-full bg-primary/20 mb-6">About Us</span>
@@ -235,7 +151,7 @@
                         <div class="bg-transparent rounded-md shadow-lg border border-default-100 hover:border-primary transition-all duration-200">
                             <div class="p-6">
                                 <div class="mb-6">
-                                    <img src="assets/vegetables-5e491677.png" class="">
+                                    <img src="{{ asset("images/vegetables.png") }}" class="">
                                 </div>
                                 <h3 class="text-xl font-medium text-default-900 mb-6">Healthy Foods</h3>
                                 <p class="text-base text-default-500">Healthy Foods are nutrient-Dense Foods</p>
@@ -255,10 +171,10 @@
                     <div class="flex flex-wrap items-center md:justify-start justify-center gap-4 mt-10">
                         <a href="javascript:void(0)" class="py-3 px-10 font-medium text-white bg-primary rounded-full hover:bg-primary-500 transition-all">Get started</a>
                         <div class="flex items-center gap-2">
-                            <img src="assets/avatar3-2bbdc0fd.png" class="h-12 w-12 rounded-full">
+                            <img src="{{ asset("images/avatar-ceo.jpg") }}" class="h-12 w-12 rounded-full">
                             <div class="">
-                                <h6 class="text-base font-medium text-default-900">Marley Culhane</h6>
-                                <p class="text-sm font-medium text-default-500">Founder CEO</p>
+                                <h6 class="text-base font-medium text-default-900">{{ __("Nguyen Tan Dung") }}</h6>
+                                <p class="text-sm font-medium text-default-500">{{ __("Founder CEO") }}</p>
                             </div>
                         </div>
                     </div><!-- end flex -->
@@ -284,7 +200,7 @@
                                 <button type="button" class="flex p-1" id="coffee-menu-item" data-hs-tab="#coffee-menu" aria-controls="coffee-menu" role="tab">
                                     <span class="hs-tab-active:bg-primary text-default-900 flex items-center justify-start gap-4 p-2 pe-6 lg:w-2/3 w-full transition-all hover:text-primary rounded-full">
                                         <span class="hs-tab-active:bg-white h-14 w-14 inline-flex items-center justify-center rounded-full">
-                                            <img src="assets/cup-3dff3c2f.svg" class="h-8 w-8">
+                                            <img src="{{ asset("images/cup.svg") }}" class="h-8 w-8">
                                         </span>
                                         <span class="hs-tab-active:text-white text-base font-medium">Coffee</span>
                                     </span>
@@ -294,7 +210,7 @@
                                 <button type="button" class="flex p-1" id="burger-menu-item" data-hs-tab="#burger-menu" aria-controls="burger-menu" role="tab">
                                     <span class="hs-tab-active:bg-primary text-default-900 flex items-center justify-start gap-4 p-2 pe-6 lg:w-2/3 w-full transition-all hover:text-primary rounded-full">
                                         <span class="hs-tab-active:bg-white h-14 w-14 inline-flex items-center justify-center rounded-full">
-                                            <img src="assets/burger-1-0c3ba5a6.svg" class="h-8 w-8">
+                                            <img src="{{ asset("images/burger.svg") }}" class="h-8 w-8">
                                         </span>
                                         <span class="hs-tab-active:text-white text-base font-medium">Burger</span>
                                     </span>
@@ -304,7 +220,7 @@
                                 <button type="button" class="flex p-1" id="noodles-menu-item" data-hs-tab="#noodles-menu" aria-controls="noodles-menu" role="tab">
                                     <span class="hs-tab-active:bg-primary text-default-900 flex items-center justify-start gap-4 p-2 pe-6 lg:w-2/3 w-full transition-all hover:text-primary rounded-full">
                                         <span class="hs-tab-active:bg-white h-14 w-14 inline-flex items-center justify-center rounded-full">
-                                            <img src="assets/noodles-8ff3aeb9.svg" class="h-8 w-8">
+                                            <img src="{{ asset("images/noodles.svg") }}" class="h-8 w-8">
                                         </span>
                                         <span class="hs-tab-active:text-white text-base font-medium">Noodles</span>
                                     </span>
@@ -314,7 +230,7 @@
                                 <button type="button" class="flex p-1 active" id="pizza-menu-item" data-hs-tab="#pizza-menu" aria-controls="pizza-menu" role="tab">
                                     <span class="hs-tab-active:bg-primary text-default-900 flex items-center justify-start gap-4 p-2 pe-6 lg:w-2/3 w-full transition-all hover:text-primary rounded-full">
                                         <span class="hs-tab-active:bg-white  p-4 h-14 w-14 inline-flex items-center justify-center rounded-full">
-                                            <img src="assets/pizza-slice%201-79554296.svg" class="h-8 w-8">
+                                            <img src="{{ asset("images/pizza.svg") }}" class="h-8 w-8">
                                         </span>
                                         <span class="hs-tab-active:text-white text-base font-medium">Pizza</span>
                                     </span>
@@ -324,7 +240,7 @@
                                 <button type="button" class="flex p-1" id="wraps-menu-item" data-hs-tab="#wraps-menu" aria-controls="wraps-menu" role="tab">
                                     <span class="hs-tab-active:bg-primary text-default-900 flex items-center justify-start gap-4 p-2 pe-6 lg:w-2/3 w-full transition-all hover:text-primary rounded-full">
                                         <span class="hs-tab-active:bg-white h-14 w-14 inline-flex items-center justify-center rounded-full">
-                                            <img src="assets/taco-96e6ecf3.svg" class="h-8 w-8">
+                                            <img src="{{ asset("images/taco.svg") }}" class="h-8 w-8">
                                         </span>
                                         <span class="hs-tab-active:text-white text-base font-medium">Wraps</span>
                                     </span>
@@ -334,7 +250,7 @@
                                 <button type="button" class="flex p-1" id="appetizers-menu-item" data-hs-tab="#appetizers-menu" aria-controls="appetizers-menu" role="tab">
                                     <span class="hs-tab-active:bg-primary text-default-900 flex items-center justify-start gap-4 p-2 pe-6 lg:w-2/3 w-full transition-all hover:text-primary rounded-full">
                                         <span class="hs-tab-active:bg-white h-14 w-14 inline-flex items-center justify-center rounded-full">
-                                            <img src="assets/skewer-86331503.svg" class="h-8 w-8">
+                                            <img src="{{ asset("images/skewer.svg") }}" class="h-8 w-8" alt="food">
                                         </span>
                                         <span class="hs-tab-active:text-white text-base font-medium">Appetizers</span>
                                     </span>
@@ -344,7 +260,7 @@
                                 <button type="button" class="flex p-1" id="desserts-menu-item" data-hs-tab="#desserts-menu" aria-controls="desserts-menu" role="tab">
                                     <span class="hs-tab-active:bg-primary text-default-900 flex items-center justify-start gap-4 p-2 pe-6 lg:w-2/3 w-full transition-all hover:text-primary rounded-full">
                                         <span class="hs-tab-active:bg-white h-14 w-14 inline-flex items-center justify-center rounded-full">
-                                            <img src="assets/dessert-97434bb7.svg" class="h-8 w-8">
+                                            <img src="{{ asset("images/dessert.svg") }}" class="h-8 w-8">
                                         </span>
                                         <span class="hs-tab-active:text-white text-base font-medium">Desserts</span>
                                     </span>
@@ -364,7 +280,7 @@
                                             <div class="swiper-wrapper">
                                                 <div class="swiper-slide">
                                                     <div class="relative rounded-lg overflow-hidden cursor-pointer">
-                                                        <img src="assets/pizza-1-b135e62c.png" class="h-full w-full">
+                                                        <img src="{{ asset("images/pizza-1.png") }}" class="h-full w-full">
                                                         <div class="absolute inset-0 bg-default-950/20">
                                                             <div class="inline-flex items-end h-full w-full">
                                                                 <div class="p-6">
@@ -379,7 +295,7 @@
 
                                                 <div class="swiper-slide">
                                                     <div class="relative rounded-lg overflow-hidden cursor-pointer">
-                                                        <img src="assets/pizza-2-3b9c935a.png" class="h-full w-full">
+                                                        <img src="{{ asset("images/pizza-2-1.png") }}" class="h-full w-full">
                                                         <div class="absolute inset-0 bg-default-950/20">
                                                             <div class="inline-flex items-end h-full w-full">
                                                                 <div class="p-6">
@@ -394,7 +310,7 @@
 
                                                 <div class="swiper-slide">
                                                     <div class="relative rounded-lg overflow-hidden cursor-pointer">
-                                                        <img src="assets/pizza-3-c0ae558f.png" class="h-full w-full">
+                                                        <img src="{{ asset("images/pizza-3.png") }}" class="h-full w-full">
                                                         <div class="absolute inset-0 bg-default-950/20">
                                                             <div class="inline-flex items-end h-full w-full">
                                                                 <div class="p-6">
@@ -409,7 +325,7 @@
 
                                                 <div class="swiper-slide">
                                                     <div class="relative rounded-lg overflow-hidden cursor-pointer">
-                                                        <img src="assets/pizza-4-50931b5d.png" class="h-full w-full">
+                                                        <img src="{{ asset("images/pizza-3.png") }}" class="h-full w-full">
                                                         <div class="absolute inset-0 bg-default-950/20">
                                                             <div class="inline-flex items-end h-full w-full">
                                                                 <div class="p-6">
@@ -842,7 +758,7 @@
                                 <img src="data:image/png;base64,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">
                             </span>
                             <span class="absolute -bottom-12 -end-0 z-10">
-                                <img src="assets/leaf-ed221ba8.png">
+                                <img src="{{ asset("images/leaf.png") }}">
                             </span>
                         </div>
                     </div><!-- end menu-sliders -->
@@ -857,7 +773,7 @@
             <div class="grid lg:grid-cols-2 grid-cols-1 items-center gap-20">
                 <div>
                     <div class="relative">
-                        <img src="assets/testimonial-img-11d36fc9.png" class="lg:mx-0 mx-auto">
+                        <img src="{{ asset("images/girl-and-chicken.jpg") }}" class="lg:mx-0 mx-auto rounded-lg">
 
                         <div class="absolute -bottom-10 end-20">
                             <div class="bg-white shadow-lg rounded-xl dark:bg-default-100">
@@ -865,13 +781,13 @@
                                     <h6 class="text-base font-semibold text-default-900 mb-2">Our Reviewers</h6>
                                     <div class="flex items-center justify-center -space-x-1">
                                         <div class="h-12 w-12">
-                                            <img class="h-full w-full rounded-full object-cover object-center ring ring-default-100" src="assets/avatar1-25906796.png" />
+                                            <img class="h-full w-full rounded-full object-cover object-center ring ring-default-100" src="{{ asset("images/mixi.png") }}" />
                                         </div>
                                         <div class="h-12 w-12">
                                             <img class="h-full w-full rounded-full object-cover object-center ring ring-default-100" src="assets/avatar2-189b0d01.png" />
                                         </div>
                                         <div class="h-12 w-12">
-                                            <img class="h-full w-full rounded-full object-cover object-center ring ring-default-100" src="assets/avatar3-2bbdc0fd.png" />
+                                            <img class="h-full w-full rounded-full object-cover object-center ring ring-default-100" src="{{ asset("images/avatar-ceo.jpg") }}" />
                                         </div>
                                         <div class="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-primary text-default-50 font-medium ring ring-default-100">
                                             <span class="text-base"> 12K </span>
@@ -893,7 +809,7 @@
                                 <div class="swiper-slide">
                                     <div class="relative cursor-pointer">
                                         <div class="flex items-center gap-3 mb-12">
-                                            <img src="assets/avatar1-25906796.png" class="h-12 w-12 rounded-full">
+                                            <img src="{{ asset("images/mixi.png") }}" class="h-12 w-12 rounded-full">
                                             <div class="">
                                                 <h6 class="text-base/none font-medium text-default-900 mb-2">Madelyn Baptista</h6>
                                                 <div class="flex gap-1.5">
@@ -920,7 +836,7 @@
                                 <div class="swiper-slide">
                                     <div class="relative cursor-pointer">
                                         <div class="flex items-center gap-3 mb-12">
-                                            <img src="assets/avatar1-25906796.png" class="h-12 w-12 rounded-full">
+                                            <img src="{{ asset("images/mixi.png") }}" class="h-12 w-12 rounded-full">
                                             <div class="">
                                                 <h6 class="text-base/none font-medium text-default-900 mb-2">Marc Y. Sellers</h6>
                                                 <div class="flex gap-1.5">
@@ -946,7 +862,7 @@
                                 <div class="swiper-slide">
                                     <div class="relative cursor-pointer">
                                         <div class="flex items-center gap-3 mb-12">
-                                            <img src="assets/avatar1-25906796.png" class="h-12 w-12 rounded-full">
+                                            <img src="{{ asset("images/mixi.png") }}" class="h-12 w-12 rounded-full">
                                             <div class="">
                                                 <h6 class="text-base/none font-medium text-default-900 mb-2">Nancy C. Hunter</h6>
                                                 <div class="flex gap-1.5">
@@ -972,7 +888,7 @@
                                 <div class="swiper-slide">
                                     <div class="relative cursor-pointer">
                                         <div class="flex items-center gap-3 mb-12">
-                                            <img src="assets/avatar1-25906796.png" class="h-12 w-12 rounded-full">
+                                            <img src="{{ asset("images/mixi.png") }}" class="h-12 w-12 rounded-full">
                                             <div class="">
                                                 <h6 class="text-base/none font-medium text-default-900 mb-2">Jeannette C. Siebert</h6>
                                                 <div class="flex gap-1.5">
@@ -1000,16 +916,16 @@
                         <div class="swiper h-24 clients-testimonial-pagination relative !mt-6">
                             <div class="swiper-wrapper ps-12 !py-6 space-x-2">
                                 <div class="swiper-slide cursor-pointer !w-12 !h-12">
-                                    <img src="assets/avatar1-25906796.png" class="h-12 w-12 rounded-full">
+                                    <img src="{{ asset("images/mixi.png") }}" class="h-12 w-12 rounded-full" alt="avt">
                                 </div>
                                 <div class="swiper-slide cursor-pointer !w-12 !h-12">
-                                    <img src="assets/avatar2-189b0d01.png" class="h-12 w-12 rounded-full">
+                                    <img src="{{ asset("images/mixi.png") }}" class="h-12 w-12 rounded-full">
                                 </div>
                                 <div class="swiper-slide cursor-pointer !w-12 !h-12">
-                                    <img src="assets/avatar3-2bbdc0fd.png" class="h-12 w-12 rounded-full">
+                                    <img src="{{ asset("images/avatar-ceo.jpg") }}" class="h-12 w-12 rounded-full">
                                 </div>
                                 <div class="swiper-slide cursor-pointer !w-12 !h-12">
-                                    <img src="assets/avatar4-85475652.png" class="h-12 w-12 rounded-full">
+                                    <img src="{{ asset("images/mixi.png") }}" class="h-12 w-12 rounded-full">
                                 </div>
                             </div>
                         </div>
@@ -1020,7 +936,7 @@
     </section>
 
     <!-- Offer Section -->
-    <section class="lg:py-28 py-10 relative bg-no-repeat bg-cover bg-[url(../images/home/offer-bg.png)]">
+    <section class="lg:py-28 py-10 relative bg-no-repeat bg-cover bg-offer ">
         <div class="absolute inset-0 bg-black/20"></div>
         <div class="container">
             <div class="relative lg:w-1/2 w-full">
@@ -1034,53 +950,10 @@
                 </div>
 
                 <div class="absolute end-0 lg:-bottom-16 bottom-10">
-                    <img src="assets/offer-popup-78034aee.svg" class="lg:w-auto w-20">
+                    <img src="{{ asset("images/offer-popup.svg") }}" class="lg:w-auto w-20">
                 </div>
             </div>
         </div><!-- end container -->
-    </section>
-
-    <!-- Download App Section -->
-    <section class="lg:py-16 py-6">
-        <div class="container">
-            <div class="bg-primary/10 rounded-lg">
-                <div class="grid lg:grid-cols-2 items-center gap-6">
-                    <div class="relative lg:p-20 p-6 h-full">
-                        <span class="absolute end-16 top-1/3 text-xl rotate-45">😃</span>
-                        <span class="absolute end-0 top-1/2 text-xl rotate-45">🔥</span>
-                        <span class="absolute bottom-40 end-40 h-2 w-2 inline-flex items-center justify-center bg-primary text-white rounded-full"></span>
-                        <div class="hidden sm:block absolute -bottom-10 lg:bottom-10 lg:end-0 end-10">
-                            <div class="bg-default-50 rounded-full p-2 shadow-lg">
-                                <div class="flex items-center gap-4">
-                                    <div class="h-14 w-14 rounded-full overflow-hidden">
-                                        <img src="assets/avatar4-85475652.png">
-                                    </div>
-                                    <div class="">
-                                        <h6 class="text-base font-medium text-default-900 mb-1">Richard Watson</h6>
-                                        <p class="text-sm font-medium text-default-500">Food Courier</p>
-                                    </div>
-                                    <div class="h-14 w-14 inline-flex items-center justify-center rounded-full bg-primary text-white">
-                                        <i data-lucide="phone" class=""></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <span class="inline-flex py-2 px-4 text-sm text-primary rounded-full bg-primary/20 mb-6">Download App</span>
-                        <h2 class="text-3xl/relaxed font-semibold text-default-900 max-w-sm mb-6">Get Started With Us Today!</h2>
-                        <p class="text-default-900 text-base max-w-md mb-10">Discover food wherever and whenever and get your food delivered quickly.</p>
-                        <a href="javascript:void(0)" class="inline-flex py-4 px-10 font-medium text-white bg-primary rounded-full hover:bg-primary-500 transition-all">Get started</a>
-                    </div>
-                    <div class="relative pt-20 px-20">
-                        <span class="absolute end-10 bottom-28 text-3xl -rotate-45">🔥</span>
-                        <span class="absolute bottom-10 end-20 h-3 w-3 inline-flex items-center justify-center bg-primary text-white rounded-full"></span>
-                        <span class="absolute top-1/4 end-10 h-2.5 w-2.5 inline-flex items-center justify-center bg-yellow-400 text-white rounded-full"></span>
-                        <span class="absolute end-1/4 top-12 text-xl -rotate-45">😋</span>
-                        <span class="absolute start-10 top-12 h-2 w-2 inline-flex items-center justify-center bg-primary text-white rounded-full"></span>
-                        <img src="assets/mockup-c20fe925.png" class="max-w-full max-h-full">
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
 
 </x-user.layouts.app>

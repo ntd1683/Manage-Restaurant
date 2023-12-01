@@ -8,6 +8,7 @@ module.exports = {
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.vue",
+        "node_modules/preline/dist/*.js"
     ],
     theme: {
         colors: {
@@ -23,10 +24,12 @@ module.exports = {
         extend: {
             zIndex: {
                 '70': '70',
+                '60': '60',
             },
         },
     },
     plugins: [
+        require('preline/plugin'),
         createThemes({
             light: {
                 'default': {

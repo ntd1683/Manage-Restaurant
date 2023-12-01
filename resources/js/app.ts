@@ -1,12 +1,14 @@
-// import './bootstrap';
-import './lib/lucide.js';
+import './lib/lucide.ts';
+import './lib/swiper.ts';
+import 'preline';
+import '../css/app.css';
 
 //region Preloader
 window.onload = function () {
     setTimeout(() => {
-        document.getElementById("preloader");
-        document.getElementById("preloader").style.visibility = "hidden";
-        document.getElementById("preloader").style.opacity = "0";
+        const preloader = document.getElementById("preloader") as HTMLElement;
+        preloader.style.visibility = "hidden";
+        preloader.style.opacity = "0";
     }, 500)
 }
 //endregion
@@ -14,15 +16,18 @@ window.onload = function () {
 //region Navbar Sticky
 window.addEventListener("scroll",  (e) => {
     e.preventDefault();
-    const header_navbar = document.getElementById("navbar");
-    (document.body.scrollTop >= 75 || document.documentElement.scrollTop >= 75 ? header_navbar.classList.add("nav-sticky") : header_navbar.classList.remove("nav-sticky"));
+    const header_navbar = document.getElementById("navbar") as HTMLElement;
+    (document.body.scrollTop >= 75 || document.documentElement.scrollTop >= 75
+        ? header_navbar.classList.add("nav-sticky")
+        : header_navbar.classList.remove("nav-sticky")
+    );
 })
 //endregion
 
 //region Back to top
-const backToTop = document.querySelector('[data-toggle="back-to-top"]');
+const backToTop = document.querySelector('[data-toggle="back-to-top"]') as HTMLElement;
 window.addEventListener("scroll", () => {
-    if(window.pageYOffset > 72) {
+    if (window.pageYOffset > 72) {
         backToTop.classList.remove("opacity-0");
         backToTop.classList.add("h-8");
         backToTop.classList.remove("h-0");
@@ -43,25 +48,25 @@ backToTop.addEventListener("click", (e) => {
 //endregion
 
 //region Dark Mode
-window.addEventListener("load", () => {
+document.addEventListener("DOMContentLoaded", () => {
     const documentElement = document.documentElement;
     const theme = localStorage.getItem("theme");
     documentElement.classList.add(theme);
 
-    const lightTheme = document.getElementById("light-theme");
-    const darkTheme = document.getElementById("dark-theme");
+    const lightTheme = document.getElementById("light-theme") as HTMLElement;
+    const darkTheme = document.getElementById("dark-theme") as HTMLElement;
 
-    const toggleHidden = (element, isHidden) => {
+    const toggleHidden = (element: HTMLElement, isHidden: boolean) => {
         let containHidden = element.classList.contains("hidden");
         if (isHidden && containHidden) {
             element.classList.remove("hidden");
-        } else if(!isHidden && !containHidden ){
+        } else if (!isHidden && !containHidden ){
             element.classList.add("hidden");
         }
     };
 
     const darkModeToggleIcon = () => {
-        if(! documentElement.classList.contains("dark")) {
+        if (!documentElement.classList.contains("dark")) {
             toggleHidden(lightTheme, true);
             toggleHidden(darkTheme, false);
         } else {
@@ -72,7 +77,7 @@ window.addEventListener("load", () => {
 
     darkModeToggleIcon();
 
-    document.getElementById("change-theme").addEventListener("click", () => {
+    document.getElementById("change-theme")?.addEventListener("click", () => {
         documentElement.classList.toggle("dark");
         localStorage.setItem("theme", documentElement.classList.contains("dark") ? "dark" : "light");
         darkModeToggleIcon();
