@@ -1,6 +1,59 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+[type=search] {
+    -webkit-appearance: textfield;
+    outline-offset: -2px
+}
+
+[hidden] {
+    display: none
+}
+
+[type=text],
+[type=email],
+[type=url],
+[type=password],
+[type=number],
+[type=date],
+[type=datetime-local],
+[type=month],
+[type=search],
+[type=tel],
+[type=time],
+[type=week],
+[multiple],
+textarea,
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    border-color: #6b7280;
+    border-width: 1px;
+    border-radius: 0;
+    padding: .5rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    --tw-shadow: 0 0 #0000
+}
+
+[type=text]:focus,
+[type=email]:focus,
+[type=url]:focus,
+[type=password]:focus,
+[type=number]:focus,
+[type=date]:focus,
+[type=datetime-local]:focus,
+[type=month]:focus,
+[type=search]:focus,
+[type=tel]:focus,
+[type=time]:focus,
+[type=week]:focus,
+[multiple]:focus,
+textarea:focus,
+select:focus {
+    outline: 0px solid transparent;
+    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    border-color: #ea580c
+}
 
 body {
     -webkit-tap-highlight-color: transparent;
@@ -15,6 +68,11 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 
 .container {
     margin-right: auto;
@@ -39,6 +97,42 @@ header.nav-sticky {
 :is(.dark header.nav-sticky) {
     --tw-bg-opacity: 1;
     background-color: hsl(var(--twc-default-50) / var(--twc-default-50-opacity, var(--tw-bg-opacity)))
+}
+
+
+
+:is(.dark .dark\:border-gray-600) {
+    --tw-border-opacity: 1;
+    border-color: rgb(75 85 99 / var(--tw-border-opacity))
+}
+
+:is(.dark .dark\:bg-default-100) {
+    --tw-bg-opacity: 1;
+    background-color: hsl(var(--twc-default-100) / var(--twc-default-100-opacity, var(--tw-bg-opacity)))
+}
+
+:is(.dark .dark\:bg-default-200) {
+    --tw-bg-opacity: 1;
+    background-color: hsl(var(--twc-default-200) / var(--twc-default-200-opacity, var(--tw-bg-opacity)))
+}
+
+:is(.dark .dark\:bg-default-50) {
+    --tw-bg-opacity: 1;
+    background-color: hsl(var(--twc-default-50) / var(--twc-default-50-opacity, var(--tw-bg-opacity)))
+}
+
+:is(.dark .dark\:bg-gray-700) {
+    --tw-bg-opacity: 1;
+    background-color: rgb(55 65 81 / var(--tw-bg-opacity))
+}
+
+:is(.dark .dark\:bg-opacity-80) {
+    --tw-bg-opacity: .8
+}
+
+:is(.dark .dark\:text-primary-50) {
+    --tw-text-opacity: 1;
+    color: rgb(255 247 237 / var(--tw-text-opacity))
 }
 
 @media (min-width: 1024px) {
@@ -68,6 +162,12 @@ header.nav-sticky {
     background-color: hsl(var(--twc-default-200) / .5) !important;
     --tw-text-opacity: 1 !important;
     color: hsl(var(--twc-default-700) / var(--twc-default-700-opacity, var(--tw-text-opacity))) !important
+}
+
+@media (min-width: 1024px) {
+    .page-content {
+        min-height: calc(100vh - 146px)
+    }
 }
 
 @media (min-width: 1024px) {

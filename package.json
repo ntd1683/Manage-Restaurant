@@ -17,6 +17,8 @@
     "dependencies": {
         "lucide": "^0.293.0",
         "preline": "^2.0.2",
+        "resize-observer-polyfill": "^1.5.1",
+        "simplebar": "^6.2.5",
         "swiper": "^11.0.5"
     }
 }

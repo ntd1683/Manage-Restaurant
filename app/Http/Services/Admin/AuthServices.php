@@ -1,0 +1,29 @@
+<?php
+
+namespace App\Http\Services\Admin;
+
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
+class AuthServices {
+
+    public function login(string $email, string $password, bool $remember): bool
+    {
+        if (Auth::attempt(["email" => $email, "password" => $password], $remember))
+        {
+            try {
+                $user = User::query()
+                    ->where('email', $email)
+                    ->firstOrFail();
+
+                Auth::login($user, $remember);
+
+                return true;
+            } catch (\Exception $e) {
+                return false;
+            }
+        }
+
+        return false;
+    }
+}

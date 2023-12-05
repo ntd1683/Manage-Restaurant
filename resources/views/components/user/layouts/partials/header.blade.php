@@ -5,7 +5,7 @@
             <div class="grid lg:grid-cols-3 grid-cols-2 items-center gap-4">
                 <div class="flex">
                     <!-- Navbar Brand Logo -->
-                    <a href="home.html" class="pl-4">
+                    <a href="{{ route("index") }}" class="pl-4">
                         <img src="{{ asset("images/logo-dark.png") }}" alt="logo" class="h-10 flex dark:hidden">
                         <img src="{{ asset("images/logo-light.png") }}" alt="logo" class="h-10 hidden dark:flex">
                     </a>
@@ -15,19 +15,19 @@
                 <ul class="menu lg:flex items-center justify-center hidden relative">
                     <!-- Home Menu -->
                     <li class="menu-item">
-                        <a class="inline-flex items-center text-sm lg:text-base font-semibold text-default-800 py-2 px-4 rounded-full hover:text-primary " href="home.html">Home </a>
+                        <a class="inline-flex items-center text-sm lg:text-base font-semibold text-default-800 py-2 px-4 rounded-full hover:text-primary " href="{{ route("index") }}">Home </a>
                     </li>
                     <!-- Food Menu -->
                     <li class="menu-item">
-                        <a class="inline-flex items-center text-sm lg:text-base font-semibold text-default-800 py-2 px-4 rounded-full hover:text-primary " href="home.html">Food </a>
+                        <a class="inline-flex items-center text-sm lg:text-base font-semibold text-default-800 py-2 px-4 rounded-full hover:text-primary " href="{{ route("index") }}">Order </a>
                     </li>
                     <!-- Cart Menu -->
                     <li class="menu-item">
-                        <a class="inline-flex items-center text-sm lg:text-base font-semibold text-default-800 py-2 px-4 rounded-full hover:text-primary " href="home.html">Cart </a>
+                        <a class="inline-flex items-center text-sm lg:text-base font-semibold text-default-800 py-2 px-4 rounded-full hover:text-primary " href="{{ route("cart") }}">Cart </a>
                     </li>
                     <!-- Camera Scan Menu -->
                     <li class="menu-item">
-                        <a class="inline-flex items-center text-sm lg:text-base font-semibold text-default-800 py-2 px-4 rounded-full hover:text-primary w-max" href="home.html">Camera Scan</a>
+                        <a class="inline-flex items-center text-sm lg:text-base font-semibold text-default-800 py-2 px-4 rounded-full hover:text-primary w-max" href="{{ route("index") }}">Camera Scan</a>
                     </li>
                 </ul>
 
@@ -58,7 +58,7 @@
                     <!-- User Dropdown -->
                     <li class="flex menu-item">
                         <div class="hs-dropdown relative inline-flex [--trigger:hover] [--placement:bottom]">
-                            <a class="hs-dropdown-toggle after:absolute hover:after:-bottom-10 after:inset-0 relative flex items-center text-base transition-all text-default-600 hover:text-primary" href="javascript:void(0)">
+                            <a class="hs-dropdown-toggle after:absolute hover:after:-bottom-10 after:inset-0 relative flex items-center text-base transition-all text-default-600 hover:text-primary" href="#">
                                 <i class="w-5 h-5" data-lucide="user"></i>
                             </a>
 
@@ -68,12 +68,12 @@
                                         <a class="flex items-center gap-3 font-normal text-default-600 py-2 px-3 transition-all hover:text-default-700 hover:bg-default-100 rounded" href="admin-dashboard.html" target="_blank"><i class="h-4 w-4" data-lucide="user-check"></i> Admin</a>
                                     </li>
                                     <li>
-                                        <a class="flex items-center gap-3 font-normal text-default-600 py-2 px-3 transition-all hover:text-default-700 hover:bg-default-100 rounded" href="cart.html"><i class="h-4 w-4" data-lucide="shopping-cart"></i>
+                                        <a class="flex items-center gap-3 font-normal text-default-600 py-2 px-3 transition-all hover:text-default-700 hover:bg-default-100 rounded" href="{{ route("cart") }}"><i class="h-4 w-4" data-lucide="shopping-cart"></i>
                                             Cart</a>
                                     </li>
                                     <li>
-                                        <a class="flex items-center gap-3 font-normal text-default-600 py-2 px-3 transition-all hover:text-default-700 hover:bg-default-100 rounded" href="wishlist.html"><i class="h-4 w-4" data-lucide="heart"></i>
-                                            Wishlist</a>
+                                        <a class="flex items-center gap-3 font-normal text-default-600 py-2 px-3 transition-all hover:text-default-700 hover:bg-default-100 rounded" href="#"><i class="h-4 w-4" data-lucide="heart"></i>
+                                            Order</a>
                                     </li>
                                     <li>
                                         <a class="flex items-center gap-3 font-normal text-default-600 py-2 px-3 transition-all hover:text-default-700 hover:bg-default-100 rounded" href="auth-login.html"><i class="h-4 w-4" data-lucide="log-out"></i> Log Out</a>
@@ -87,3 +87,25 @@
         </div>
     </div>
 </header>
+
+<!-- Mobile Nav (Bottom Navbar) -->
+<div class="flex lg:hidden">
+    <div class="fixed inset-x-0 bottom-0 h-16 w-full grid grid-cols-4 items-center justify-items-center border-t border-default-200 bg-white dark:bg-default-50 z-40">
+        <a href="{{ route("index") }}" class="flex flex-col items-center justify-center gap-1 text-default-600" type="button">
+            <i class="fa-solid fa-house text-lg"></i>
+            <span class="text-xs font-medium">Home</span>
+        </a>
+        <a href="product-grid.html" class="flex flex-col items-center justify-center gap-1 text-default-600" type="button">
+            <i class="fa-solid fa-utensils text-lg"></i>
+            <span class="text-xs font-medium">Order</span>
+        </a>
+        <a href="{{ route("cart") }}" class="flex flex-col items-center justify-center gap-1 text-default-600" type="button">
+            <i class="fa-regular fa-heart text-lg"></i>
+            <span class="text-xs font-medium">Cart</span>
+        </a>
+        <a href="#" class="flex flex-col items-center justify-center gap-1 text-default-600" type="button">
+            <i class="fas fa-camera-retro"></i>
+            <span class="text-xs font-medium">Camera Scan</span>
+        </a>
+    </div>
+</div>

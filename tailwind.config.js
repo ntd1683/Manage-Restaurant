@@ -19,9 +19,16 @@ module.exports = {
             'primary': '#22d3ee',
             'secondary': 'var(--secondary-color)',
             'gray-light': '#F6F6F6',
+            'success' : colors.green,
+            'alert' : colors.yellow,
+            'error' : colors.red,
             'blueGray': colors.slate,
         },
         extend: {
+            spacing: {
+                '18': '72px',
+                '16/12' : '4.12rem',
+            },
             zIndex: {
                 '70': '70',
                 '60': '60',

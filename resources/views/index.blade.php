@@ -6,27 +6,6 @@
             }
         </style>
     @endpush
-    <!-- Mobile Nav (Bottom Navbar) -->
-    <div class="flex lg:hidden">
-        <div class="fixed inset-x-0 bottom-0 h-16 w-full grid grid-cols-4 items-center justify-items-center border-t border-default-200 bg-white dark:bg-default-50 z-40">
-            <a href="{{ route("home") }}" class="flex flex-col items-center justify-center gap-1 text-default-600" type="button">
-                <i class="fa-solid fa-house text-lg"></i>
-                <span class="text-xs font-medium">Home</span>
-            </a>
-            <a href="product-grid.html" class="flex flex-col items-center justify-center gap-1 text-default-600" type="button">
-                <i class="fa-solid fa-utensils text-lg"></i>
-                <span class="text-xs font-medium">Food</span>
-            </a>
-            <a href="wishlist.html" class="flex flex-col items-center justify-center gap-1 text-default-600" type="button">
-                <i class="fa-regular fa-heart text-lg"></i>
-                <span class="text-xs font-medium">Wishlist</span>
-            </a>
-            <a href="wishlist.html" class="flex flex-col items-center justify-center gap-1 text-default-600" type="button">
-                <i class="fas fa-camera-retro"></i>
-                <span class="text-xs font-medium">Camera Scan</span>
-            </a>
-        </div>
-    </div>
 
     <!-- Topbar Search Modal (Small Screen) -->
     <div id="mobileSearchSidebar" class="hs-overlay hidden w-full h-full fixed top-0 left-0 z-60 overflow-x-hidden overflow-y-auto">

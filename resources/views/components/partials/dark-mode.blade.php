@@ -8,3 +8,6 @@
         <i class="h-5 w-5 hidden" data-lucide="moon" id="dark-theme"></i>
     </button>
 </div>
+@push("js")
+    @vite('resources/js/theme.ts')
+@endpush

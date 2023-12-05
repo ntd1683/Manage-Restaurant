@@ -75,7 +75,7 @@
                 <div class="grid lg:grid-cols-2 items-center gap-6">
                     <div>
                         <p class="text-default-600">
-                            <script>document.write(new Date().getFullYear())</script> Design crafted <i data-lucide="heart" class="inline h-4 w-4 text-red-500 fill-red-500"></i> by Coderthemes.com
+                            <script>document.write(new Date().getFullYear())</script> Design crafted <i data-lucide="heart" class="inline h-4 w-4 text-red-500 fill-red-500"></i> by NTD
                         </p>
                     </div>
 

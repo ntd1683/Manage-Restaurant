@@ -12,22 +12,28 @@
 
     <script src="https://kit.fontawesome.com/3e5386a9e5.js" crossorigin="anonymous"></script>
 
-    @vite(['resources/js/app.ts', 'resources/js/user.ts'])
-
-    @stack("css")
+    @vite(['resources/js/app.ts'])
 </head>
-
 <body>
+<div class="relative h-screen sm:py-16 flex items-center bg-gradient-to-b from-primary/5 via-primary/5 to-primary/10">
+    {{ $slot }}
+</div>
 
-<x-partials.pre-loader />
-
-<x-user.layouts.partials.header />
-
-{{ $slot }}
-
-<x-user.layouts.partials.footer />
 <x-partials.dark-mode />
-
 @stack("js")
+@vite("resources/js/guest.ts")
+
+<!-- Toast -->
+<div class="absolute top-10 end-4">
+    @foreach ($errors->all() as $error)
+        <x-partials.toast type="error" message="{{ $error }}" />
+    @endforeach
+
+    @if (session()->has('success'))
+        <x-partials.toast type="success" message="{{ session('success') }}" />
+    @endif
+</div>
+<!-- End Toast -->
+
 </body>
 </html>

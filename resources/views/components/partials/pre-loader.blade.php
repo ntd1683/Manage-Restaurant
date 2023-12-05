@@ -5,3 +5,6 @@
         <span class="sr-only">Loading...</span>
     </div>
 </div>
+@push("js")
+    @vite('resources/js/preLoader.ts')
+@endpush
