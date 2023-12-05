@@ -9,6 +9,8 @@ final class UserLevelEnum extends AbstractEnum
     public const CHEF = 2;
     public const MANAGER = 3;
 
+    public const ADMIN = 4;
+
     public static function getArrayView(): array
     {
         return [
@@ -16,6 +18,7 @@ final class UserLevelEnum extends AbstractEnum
             'Cashier' => self::CASHIER,
             'Chef' => self::CHEF,
             'Manager' => self::MANAGER,
+            'Admin' => self::ADMIN,
         ];
     }
 
@@ -26,6 +29,7 @@ final class UserLevelEnum extends AbstractEnum
             'Thu Ngân' => self::CASHIER,
             'Đầu Bếp' => self::CHEF,
             'Quản Lý' => self::MANAGER,
+            'Quản Trị Viên' => self::ADMIN,
         ];
     }
 }

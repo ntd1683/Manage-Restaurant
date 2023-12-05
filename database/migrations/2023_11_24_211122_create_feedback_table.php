@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('code')->nullable();
             $table->string('title');
             $table->string('content');
-            $table->string('image')->nullable();
+            $table->string('images')->nullable();
             $table->integer('type');
             $table->string('status')->nullable();
             $table->timestamps();
