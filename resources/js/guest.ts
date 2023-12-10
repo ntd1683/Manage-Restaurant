@@ -27,6 +27,7 @@ document.querySelectorAll("[data-x-password]").forEach(password => {
         }
     });
 })
+
 const setProperty = (object: object, property: string | symbol, value: any) => {
     if (property in object) {
         Object.defineProperty(object, property, {

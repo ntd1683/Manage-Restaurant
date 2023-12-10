@@ -1,7 +1,7 @@
 @props(['type' => 'primary', 'message' => ''])
 
 <!-- get color -->
-<span class="bg-error-500 bg-success-500 bg-alert-500" />
+<span class="hidden bg-error-500 bg-success-500 bg-alert-500"></span>
 
 <!-- Toast -->
 <div class="toast hs-removing:translate-x-5 hs-removing:opacity-0 transition duration-300 max-w-xs bg-{{ $type }}-500 text-sm text-white rounded-xl shadow-lg" role="alert">

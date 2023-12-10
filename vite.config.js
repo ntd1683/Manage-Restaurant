@@ -8,6 +8,8 @@ export default defineConfig({
                 'resources/js/app.ts',
                 "resources/js/user.ts",
                 "resources/js/admin.ts",
+                "resources/js/guest.ts",
+                "resources/js/setting.js",
                 "resources/js/preLoader.ts",
                 "resources/js/theme.ts",
             ],

@@ -6,8 +6,8 @@
                 <div class="flex">
                     <!-- Navbar Brand Logo -->
                     <a href="{{ route("index") }}" class="pl-4">
-                        <img src="{{ asset("images/logo-dark.png") }}" alt="logo" class="h-10 flex dark:hidden">
-                        <img src="{{ asset("images/logo-light.png") }}" alt="logo" class="h-10 hidden dark:flex">
+                        <img src="{{ getImageFromStorage(option("logo_dark"), "images/logo-dark.png") }}" alt="logo" class="h-10 flex dark:hidden">
+                        <img src="{{ getImageFromStorage(option("logo_light"), "images/logo-light.png") }}" alt="logo" class="h-10 hidden dark:flex">
                     </a>
                 </div>
 

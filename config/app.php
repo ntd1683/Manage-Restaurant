@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Dũng Phát'),
 
     /*
     |--------------------------------------------------------------------------
@@ -125,6 +125,19 @@ return [
     'key' => env('APP_KEY'),
 
     'cipher' => 'AES-256-CBC',
+
+    /*
+    |--------------------------------------------------------------------------
+    | API Keys
+    |--------------------------------------------------------------------------
+    |
+    | This section stores secret API keys used by your application. These keys
+    | should not be shared publicly and should be stored securely.
+    |
+    */
+    'api_keys' => [
+        'google_maps' => env('GOOGLE_MAPS_API_KEY'),
+    ],
 
     /*
     |--------------------------------------------------------------------------

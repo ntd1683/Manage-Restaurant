@@ -25,15 +25,6 @@
 
 <!-- Toast -->
 <div class="absolute top-10 end-4">
-    @foreach ($errors->all() as $error)
-        <x-partials.toast type="error" message="{{ $error }}" />
-    @endforeach
-
-    @if (session()->has('success'))
-        <x-partials.toast type="success" message="{{ session('success') }}" />
-    @endif
 </div>
-<!-- End Toast -->
-
 </body>
 </html>
