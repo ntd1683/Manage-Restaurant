@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
@@ -44,7 +44,7 @@ class SettingRequest extends FormRequest
             "email" => trans("Unknown error please try again"),
             "string" => trans("Unknown error please try again"),
             "min:4" => trans("Fields must be more than 4 characters"),
-            "phone.max:15" => trans("Fields must be less than 32 characters"),
+            "phone.max:15" => trans("Fields must be less than 15 characters"),
             "numeric" => trans("Unknown error please try again"),
         ];
     }

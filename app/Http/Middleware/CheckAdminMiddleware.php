@@ -16,7 +16,7 @@ class CheckAdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::user()->level !== 4)
+        if (Auth::guest() || Auth::user()->level !== 4)
             return redirect()->route('admin.login')->withErrors('You must login account admin to continue');
 
         return $next($request);

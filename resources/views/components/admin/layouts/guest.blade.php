@@ -21,10 +21,35 @@
 
 <x-partials.dark-mode />
 @stack("js")
-@vite("resources/js/guest.ts")
+@vite("resources/js/guest.ts", "resources/js/app.ts")
 
 <!-- Toast -->
-<div class="absolute top-10 end-4">
-</div>
+<script>
+    window.addEventListener("load", () => {
+        @foreach ($errors->all() as $error)
+        Toastify({
+            text: "{{ $error }}",
+            duration: 3000,
+            close: true,
+            stopOnFocus: true,
+            style: {
+                background: "#FF0000",
+            },
+        }).showToast();
+        @endforeach
+
+        @if (session()->has('success'))
+        Toastify({
+            text: "{{ session()->get('success') }}",
+            duration: 3000,
+            close: true,
+            stopOnFocus: true,
+            style: {
+                background: "#7CFC00",
+            },
+        }).showToast();
+        @endif
+    })
+</script>
 </body>
 </html>

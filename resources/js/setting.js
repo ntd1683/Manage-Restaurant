@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
 //endregion
 
 //region Validate
-let error = "";
+let error = {};
 
 const form = document.getElementById("form-setting");
 
@@ -82,19 +82,19 @@ const validate = () => {
 
     let isError = false;
     if (!mapConfirm) {
-        error += " Please choose a address on map";
+        error.map = " Please choose a address on map";
         isError = true;
     }
 
     if (email.length === 0) {
-        error += "; Please enter a email address";
+        error.email = "; Please enter a email address";
 
         inpEmail.style.border = "1px solid red";
         inpEmail.style.color = "red";
 
         isError = true;
     } else if (!validateEmail(email)) {
-        error += "; Please enter a proper email";
+        error.mail = "; Please enter a proper email";
 
         inpEmail.style.border = "1px solid red";
         inpEmail.style.color = "red";
@@ -103,15 +103,14 @@ const validate = () => {
     }
 
     if (phone.length === 0) {
-        error += "; Please enter a phone number";
+        error.phone = "; Please enter a phone number";
 
         inpPhone.style.border = "1px solid red";
         inpPhone.style.color = "red";
 
         isError = true;
     } else if (phone.length < 6 || phone.length > 15) {
-        console.log(phone.length);
-        error += "; Please enter a proper phone number";
+        error.phone = "; Please enter a proper phone number";
 
         inpPhone.style.border = "1px solid red";
         inpPhone.style.color = "red";
@@ -126,7 +125,7 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     if (validate()) {
-        document.getElementById("error-message").innerText = error;
+        document.getElementById("error-message").innerHTML = Object.values(error).join("<br>");
     } else {
         form.submit();
     }

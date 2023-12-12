@@ -3,10 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\SettingRequest;
+use App\Http\Requests\admin\SettingRequest;
 use App\Http\Services\Admin\SettingService;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class SettingController extends Controller

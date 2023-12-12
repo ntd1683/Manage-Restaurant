@@ -23,7 +23,7 @@
             <div class="relative lg:flex hidden">
                 <input type="search"
                        class="ps-12 pe-4 py-2.5 block w-64 bg-default-50 text-default-600 border-default-200 rounded-full text-sm focus:border-primary focus:ring-primary"
-                       placeholder="Search for items...">
+                       placeholder="{{ __("Search for items...") }}">
                 <span class="absolute start-4 top-2.5">
                         <i data-lucide="search" class="w-5 h-5 text-default-600"></i>
                     </span>
@@ -197,9 +197,9 @@
                     <div
                         class="hs-dropdown-menu mt-2 transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-[12rem] shadow-md rounded-lg p-2 border border-default-200 bg-white dark:bg-default-50">
                         <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-default-800 transition-all hover:bg-default-100"
-                           href="{{ route("admin.setting") }}">
+                           href="{{ route("admin.profile") }}">
                             <i class="w-4 h-4" data-lucide="user"></i>
-                            My Profile
+                            {{ __("My Profile") }}
                         </a>
                         <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-default-800 transition-all hover:bg-default-100"
                            href="home.html" target="_blank">
@@ -215,9 +215,9 @@
                         <hr class="my-2 border-default-200 -mx-2">
 
                         <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-md text-sm text-red-400 hover:bg-red-400/10"
-                           href="javascript:void(0)">
+                           href="{{ route("admin.logout") }}">
                             <i class="w-4 h-4" data-lucide="log-out"></i>
-                            Log out
+                            {{ __("Log out") }}
                         </a>
                     </div>
                 </div>
