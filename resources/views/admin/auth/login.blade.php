@@ -5,8 +5,8 @@
                 <div class="shrink">
                     <div>
                         <a href="{{ route("admin.index") }}" class="flex items-center">
-                            <img src="{{ asset("images/logo-dark.png") }}" alt="logo" class="h-12 flex dark:hidden">
-                            <img src="{{ asset("images/logo-light.png") }}" alt="logo" class="h-12 hidden dark:flex">
+                            <img src="{{ getImageFromStorage(option("logo_dark"), "images/logo-dark.png") }}" alt="logo" class="h-12 flex dark:hidden">
+                            <img src="{{ getImageFromStorage(option("logo_light"), "images/logo-light.png") }}" alt="logo" class="h-12 hidden dark:flex">
                         </a>
                     </div>
                     <div class="py-10">
@@ -28,7 +28,7 @@
                                 <a href="auth-recoverpw.html" class="text-xs text-default-700 hover:text-primary">Forget
                                     Password ?</a>
                             </div>
-                            <div class="flex" data-x-password>
+                            <div class="flex" >
                                 <x-forms.inputs.password data-x-field="password" name="password" id="form-password"
                                                          :placeholder="trans('Enter your password')"/>
                             </div>

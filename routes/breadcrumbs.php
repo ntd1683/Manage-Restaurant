@@ -24,3 +24,8 @@ Breadcrumbs::for('admin.home', function (BreadcrumbTrail $trail) {
     $trail->parent('admin');
     $trail->push('Home', route('admin.index'), ['icon' => 'home']);
 });
+
+Breadcrumbs::for('admin.setting', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin');
+    $trail->push('Setting', route('admin.setting'), ['icon' => 'settings']);
+});

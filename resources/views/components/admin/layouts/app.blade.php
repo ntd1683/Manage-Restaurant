@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title>Dũng Phát - Nhà Hàng Số 1 VN</title>
+    <meta charset="utf-8"/>
+    <title>{{ option("site_name", config("app.name")) . getSubtitle() }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="" name="description" />
-    <meta content="coderthemes" name="author" />
+    <meta content="" name="description"/>
+    <meta content="coderthemes" name="author"/>
 
     <!-- Theme favicon -->
     <link rel="shortcut icon" href="{{ asset("favicon.ico") }}">
@@ -37,20 +37,48 @@
 
 <body>
 
-<x-partials.pre-loader />
+<x-partials.pre-loader/>
 
-<x-admin.layouts.partials.header />
+<x-admin.layouts.partials.header/>
 
-<x-admin.layouts.partials.sidebar />
+<x-admin.layouts.partials.sidebar/>
 
 <!-- Start Content -->
 {{ $slot }}
 <!-- End Content -->
 
-<x-admin.layouts.partials.footer />
+<x-admin.layouts.partials.footer/>
 
-<x-partials.dark-mode />
+<x-partials.dark-mode/>
 
 @stack("js")
+
+<script>
+    window.addEventListener("load", () => {
+        @foreach ($errors->all() as $error)
+        Toastify({
+            text: "{{ $error }}",
+            duration: 3000,
+            close: true,
+            stopOnFocus: true,
+            style: {
+                background: "#FF0000",
+            },
+        }).showToast();
+        @endforeach
+
+        @if (session()->has('success'))
+        Toastify({
+            text: "{{ session()->get('success') }}",
+            duration: 3000,
+            close: true,
+            stopOnFocus: true,
+            style: {
+                background: "#7CFC00",
+            },
+        }).showToast();
+        @endif
+    })
+</script>
 </body>
 </html>

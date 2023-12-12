@@ -5,7 +5,7 @@ namespace App\Http\Services\Admin;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
-class AuthServices {
+class AuthService {
 
     public function login(string $email, string $password, bool $remember): bool
     {

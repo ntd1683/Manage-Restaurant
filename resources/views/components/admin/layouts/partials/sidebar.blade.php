@@ -2,8 +2,8 @@
 <div id="application-sidebar" class="hs-overlay hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300 transform hidden fixed inset-y-0 start-0 z-60 w-64 bg-white border-e border-default-200 overflow-y-auto lg:block lg:translate-x-0 lg:right-auto lg:bottom-0 dark:bg-default-50">
     <div class="flex sticky top-0 items-center justify-center px-6 h-18 border-b border-dashed border-default-200">
         <a href="{{ route("admin.index") }}">
-            <img src="{{ asset("images/logo-dark.png") }}" alt="logo" class="h-10 flex dark:hidden">
-            <img src="{{ asset("images/logo-light.png") }}" alt="logo" class="h-10 hidden dark:flex">
+            <img src="{{ getImageFromStorage(option("logo_dark"), "images/logo-dark.png") }}" alt="logo" class="h-10 flex dark:hidden">
+            <img src="{{ getImageFromStorage(option("logo_light"), "images/logo-light.png") }}" alt="logo" class="h-10 hidden dark:flex">
         </a>
     </div>
 

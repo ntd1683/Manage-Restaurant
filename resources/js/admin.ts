@@ -4,7 +4,7 @@ import {
     LogOut, User, Dot, Moon, Sun, ChevronUp, MapPin, Newspaper, LayoutGrid,
     Settings2, ListOrdered, ChevronDown, Users, Hotel, ShoppingBag, Wallet,
     UserCog, Headphones, ChevronRight, HardDriveDownload, HardDriveUpload,
-    CircleUser, Home
+    CircleUser, Home, Eye, EyeOff
 } from "lucide";
 
 createIcons({
@@ -38,6 +38,8 @@ createIcons({
         HardDriveUpload,
         CircleUser,
         Home,
+        Eye,
+        EyeOff,
     }
 });
 //endregion
@@ -55,21 +57,34 @@ window.ResizeObserver = ResizeObserver;
 document.querySelector('[data-toggle="fullscreen"]')?.addEventListener("click", (e) => {
     e.preventDefault();
     document.body.classList.toggle("fullscreen-enable");
+    // @ts-ignore
     if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement) {
         if (document.documentElement.requestFullscreen) {
             document.documentElement.requestFullscreen();
-        } else if (document.documentElement.mozRequestFullScreen) {
-            document.documentElement.mozRequestFullScreen();
-        } else if (document.documentElement.webkitRequestFullscreen) {
-            document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+        } else { // @ts-ignore
+            if (document.documentElement.mozRequestFullScreen) {
+                // @ts-ignore
+                document.documentElement.mozRequestFullScreen();
+            } else { // @ts-ignore
+                if (document.documentElement.webkitRequestFullscreen) {
+                    // @ts-ignore
+                    document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+                }
+            }
         }
     } else {
         if (document.exitFullscreen) {
             document.exitFullscreen();
-        } else if (document.mozCancelFullScreen) {
-            document.mozCancelFullScreen();
-        } else if (document.webkitCancelFullScreen) {
-            document.webkitCancelFullScreen();
+        } else { // @ts-ignore
+            if (document.mozCancelFullScreen) {
+                // @ts-ignore
+                document.mozCancelFullScreen();
+            } else { // @ts-ignore
+                if (document.webkitCancelFullScreen) {
+                    // @ts-ignore
+                    document.webkitCancelFullScreen();
+                }
+            }
         }
     }
 });

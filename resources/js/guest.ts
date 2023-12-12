@@ -2,31 +2,6 @@ import {createIcons, Eye, EyeOff, ChevronRight, Sun, Moon, ChevronUp} from 'luci
 
 createIcons({icons: {Eye, EyeOff, ChevronRight, Sun, Moon, ChevronUp}});
 
-document.querySelectorAll("[data-x-password]").forEach(password => {
-    const inputPassword = password.querySelector(".form-password") as HTMLInputElement,
-        btnPassword = password.querySelector(".password-toggle") as HTMLButtonElement,
-        iconPasswordOn = password.querySelector(".password-eye-on") as HTMLElement,
-        iconPasswordOff = password.querySelector(".password-eye-off") as HTMLElement;
-
-    if (!inputPassword || !iconPasswordOn || !iconPasswordOff) return;
-
-    iconPasswordOff.classList.add("hidden");
-    let isShowPassword : boolean = false;
-
-    btnPassword.addEventListener("click", () => {
-        if(! isShowPassword) {
-            isShowPassword = true;
-            iconPasswordOn.classList?.add("hidden");
-            iconPasswordOff.classList?.remove("hidden");
-            inputPassword.type = "text";
-        } else {
-            isShowPassword = false;
-            iconPasswordOff.classList?.add("hidden");
-            iconPasswordOn.classList?.remove("hidden");
-            inputPassword.type = "password";
-        }
-    });
-})
 const setProperty = (object: object, property: string | symbol, value: any) => {
     if (property in object) {
         Object.defineProperty(object, property, {

@@ -6,35 +6,35 @@
                 <div class="flex">
                     <!-- Navbar Brand Logo -->
                     <a href="{{ route("index") }}" class="pl-4">
-                        <img src="{{ asset("images/logo-dark.png") }}" alt="logo" class="h-10 flex dark:hidden">
-                        <img src="{{ asset("images/logo-light.png") }}" alt="logo" class="h-10 hidden dark:flex">
+                        <img src="{{ getImageFromStorage(option("logo_dark"), "images/logo-dark.png") }}" alt="logo" class="h-10 flex dark:hidden">
+                        <img src="{{ getImageFromStorage(option("logo_light"), "images/logo-light.png") }}" alt="logo" class="h-10 hidden dark:flex">
                     </a>
                 </div>
 
-                <!-- Nevigation Menu -->
+                <!-- Navigation Menu -->
                 <ul class="menu lg:flex items-center justify-center hidden relative">
                     <!-- Home Menu -->
                     <li class="menu-item">
-                        <a class="inline-flex items-center text-sm lg:text-base font-semibold text-default-800 py-2 px-4 rounded-full hover:text-primary " href="{{ route("index") }}">Home </a>
+                        <a class="inline-flex items-center text-sm lg:text-base font-semibold text-default-800 py-2 px-4 rounded-full hover:text-primary " href="{{ route("index") }}">{{ __("Home") }} </a>
                     </li>
                     <!-- Food Menu -->
                     <li class="menu-item">
-                        <a class="inline-flex items-center text-sm lg:text-base font-semibold text-default-800 py-2 px-4 rounded-full hover:text-primary " href="{{ route("index") }}">Order </a>
+                        <a class="inline-flex items-center text-sm lg:text-base font-semibold text-default-800 py-2 px-4 rounded-full hover:text-primary " href="{{ route("index") }}">{{ __("Order") }} </a>
                     </li>
                     <!-- Cart Menu -->
                     <li class="menu-item">
-                        <a class="inline-flex items-center text-sm lg:text-base font-semibold text-default-800 py-2 px-4 rounded-full hover:text-primary " href="{{ route("cart") }}">Cart </a>
+                        <a class="inline-flex items-center text-sm lg:text-base font-semibold text-default-800 py-2 px-4 rounded-full hover:text-primary " href="{{ route("cart") }}">{{ __("Cart") }} </a>
                     </li>
                     <!-- Camera Scan Menu -->
                     <li class="menu-item">
-                        <a class="inline-flex items-center text-sm lg:text-base font-semibold text-default-800 py-2 px-4 rounded-full hover:text-primary w-max" href="{{ route("index") }}">Camera Scan</a>
+                        <a class="inline-flex items-center text-sm lg:text-base font-semibold text-default-800 py-2 px-4 rounded-full hover:text-primary w-max" href="{{ route("index") }}">{{ __("Camera Scan") }}</a>
                     </li>
                 </ul>
 
                 <ul class="flex items-center justify-end gap-x-6">
                     <!-- Search Form Input -->
                     <li class="2xl:flex relative menu-item hidden">
-                        <input class="ps-10 pe-4 py-2.5 block w-64 border-transparent placeholder-primary-500 rounded-full text-sm bg-primary-400/40 text-primary" placeholder="Search for items..." type="search">
+                        <input class="ps-10 pe-4 py-2.5 block w-64 border-transparent placeholder-primary-500 rounded-full text-sm bg-primary-400/40 text-primary" placeholder="{{ __("Search for items...") }}" type="search">
                         <span class="absolute start-4 top-3">
                                 <i class="w-4 h-4 text-primary-500" data-lucide="search"></i>
                             </span>
