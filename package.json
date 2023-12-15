@@ -16,6 +16,7 @@
     "dependencies": {
         "@googlemaps/js-api-loader": "^1.16.2",
         "@types/google.maps": "^3.54.10",
+        "flatpickr": "^4.6.13",
         "lucide": "^0.293.0",
         "preline": "^2.0.2",
         "resize-observer-polyfill": "^1.5.1",

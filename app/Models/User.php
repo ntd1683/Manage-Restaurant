@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Enums\UserLevelEnum;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -52,6 +54,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function levelKey(): Attribute
+    {
+        return Attribute::get(function () {
+            if ($this->level !== null) {
+                return UserLevelEnum::getKeyByValue($this->level);
+            }
+
+            return null;
+        });
+    }
 
     public function notify(): HasMany
     {

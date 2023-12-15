@@ -29,3 +29,7 @@ Breadcrumbs::for('admin.setting', function (BreadcrumbTrail $trail) {
     $trail->parent('admin');
     $trail->push('Setting', route('admin.setting'), ['icon' => 'settings']);
 });
+
+Breadcrumbs::for('admin.customers', function (BreadcrumbTrail $trail) {
+    $trail->push('Customers', route('admin.index'), ['icon' => 'customer']);
+});

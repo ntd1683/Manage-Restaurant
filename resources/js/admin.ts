@@ -4,7 +4,7 @@ import {
     LogOut, User, Dot, Moon, Sun, ChevronUp, MapPin, Newspaper, LayoutGrid,
     Settings2, ListOrdered, ChevronDown, Users, Hotel, ShoppingBag, Wallet,
     UserCog, Headphones, ChevronRight, HardDriveDownload, HardDriveUpload,
-    CircleUser, Home, Eye, EyeOff
+    CircleUser, Home, Eye, EyeOff, Plus, CalendarDays, ArrowDownUp
 } from "lucide";
 
 createIcons({
@@ -40,6 +40,9 @@ createIcons({
         Home,
         Eye,
         EyeOff,
+        Plus,
+        CalendarDays,
+        ArrowDownUp,
     }
 });
 //endregion

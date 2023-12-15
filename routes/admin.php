@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\StaffController;
 use App\Http\Controllers\Admin\HomepageController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\ProfileController;
@@ -25,4 +26,8 @@ Route::group(["middleware" => CheckStaffMiddleware::class], function (){
 Route::group(["middleware" => CheckAdminMiddleware::class], function (){
     Route::get('/setting', [SettingController::class, "index"])->name("setting");
     Route::post('/setting', [SettingController::class, "save"])->name("setting.save");
+
+    Route::prefix("staff")->name("staff.")->group(function (){
+        Route::get('/', [StaffController::class, "index"])->name("index");
+    });
 });
