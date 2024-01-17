@@ -16,12 +16,14 @@ abstract class Table implements Htmlable, Renderable
 
     abstract protected function columns(): array;
 
+    protected string $deleteUrl;
+
     public function render(): string
     {
-        dd($this->table()->paginate($this->perPage));
         return view('components.partials.table', [
             'columns' => $this->columns(),
             'data' => $this->table()->paginate($this->perPage),
+            'deleteUrl' => $this->deleteUrl,
         ])->render();
     }
 
@@ -33,5 +35,11 @@ abstract class Table implements Htmlable, Renderable
     public function sort(string $sort , string $column): LengthAwarePaginator
     {
         return $this->table()->orderBy($column, $sort)->paginate($this->perPage);
+    }
+
+    public function setPerPage(int $perPage): self
+    {
+        $this->perPage = $perPage;
+        return $this;
     }
 }

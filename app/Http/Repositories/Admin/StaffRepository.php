@@ -31,4 +31,8 @@ class StaffRepository {
         }
     }
 
+    public function deleteUser(string $id): int
+    {
+        return $this->user::destroy($id);
+    }
 }

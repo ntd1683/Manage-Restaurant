@@ -23,7 +23,6 @@ class StaffController extends Controller
      */
     public function index()
     {
-        dd(auth()->user()->levelKey());
         $users = $this->staffService->getUsers();
 
         if ($users == null) {
@@ -34,7 +33,7 @@ class StaffController extends Controller
         $table = new StaffTable($users);
         $table = $table->toHtml();
 
-        return view("admin.staff.index", compact("users","table", "levels"));
+        return view("admin.staff.index", compact("table", "levels"));
     }
 
     /**
@@ -82,6 +81,6 @@ class StaffController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        return $this->staffService->deleteUser($id);
     }
 }

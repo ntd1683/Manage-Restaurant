@@ -8,9 +8,10 @@ class StaffTable extends Table
 {
     protected Builder $query;
 
-    public function __Construct(Builder $builder)
+    public function __construct(Builder $builder)
     {
         $this->query = $builder;
+        $this->deleteUrl = route("admin.staff.index") . "/delete";
     }
 
     protected function table(): Builder

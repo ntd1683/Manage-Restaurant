@@ -22,4 +22,9 @@ class StaffService
     {
         return $this->staffRepository->getUsers($key);
     }
+
+    public function deleteUser(string $id): int
+    {
+        return $this->staffRepository->deleteUser($id);
+    }
 }

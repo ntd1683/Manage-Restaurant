@@ -29,5 +29,6 @@ Route::group(["middleware" => CheckAdminMiddleware::class], function (){
 
     Route::prefix("staff")->name("staff.")->group(function (){
         Route::get('/', [StaffController::class, "index"])->name("index");
+        Route::delete('/delete/{id}', [StaffController::class, "destroy"])->name("destroy");
     });
 });

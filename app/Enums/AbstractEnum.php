@@ -20,7 +20,7 @@ abstract class AbstractEnum extends Enum
 
     public static function getKeyByValue($value, $lang = 'en'): string
     {
-        $arr = $lang === 'en' ? self::getArrayView() : self::getArrayViewVN();
+        $arr = $lang === 'en' ? static::getArrayView() : static::getArrayViewVN();
         return array_search($value, $arr, true);
     }
 }

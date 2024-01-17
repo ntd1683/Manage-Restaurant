@@ -1,5 +1,4 @@
 <x-admin.layouts.app>
-
     <div class="w-full lg:ps-64">
         <div class="p-6 page-content">
 
@@ -50,7 +49,6 @@
                             </div>
                         </div>
                     </div>
-
 
                     <div class="hs-dropdown relative inline-flex top-3 w-full justify-end hidden md:flex">
                         <div class="ml-3 flex items-center gap-6">

@@ -4,11 +4,15 @@ const { createThemes } = require('tw-colors');
 import colors from 'tailwindcss/colors';
 
 module.exports = {
+    variants: {
+        textColor: ['responsive', 'hover', 'focus', 'group-hover'],
+    },
     content: [
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.vue",
-        "node_modules/preline/dist/*.js"
+        "node_modules/preline/dist/*.js",
+        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php'
     ],
     theme: {
         colors: {

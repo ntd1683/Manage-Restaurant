@@ -4,6 +4,7 @@
     <meta charset="utf-8"/>
     <title>{{ option("site_name", config("app.name")) . getSubtitle() }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta content="" name="description"/>
     <meta content="coderthemes" name="author"/>
 
@@ -37,7 +38,6 @@
 
 <body>
 
-<x-partials.pre-loader/>
 
 <x-admin.layouts.partials.header/>
 
@@ -50,7 +50,7 @@
 <x-admin.layouts.partials.footer/>
 
 <x-partials.dark-mode/>
-
+<x-partials.dialog />
 @stack("js")
 
 <script>
