@@ -11,7 +11,6 @@ use Illuminate\Http\Request;
 class StaffController extends Controller
 {
     protected StaffService $staffService;
-    protected StaffTable $staffTable;
 
     public function __construct()
     {

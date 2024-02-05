@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\CheckAdminMiddleware;
 use App\Http\Middleware\CheckLogoutMiddleware;
 use App\Http\Middleware\CheckStaffMiddleware;
+use App\Http\Controllers\Ajax\StaffController as AjaxStaffController;
 
 Route::group(["middleware" => CheckLogoutMiddleware::class], function () {
     Route::get('/login', [AuthController::class, "login"])->name("login");
@@ -30,5 +31,9 @@ Route::group(["middleware" => CheckAdminMiddleware::class], function (){
     Route::prefix("staff")->name("staff.")->group(function (){
         Route::get('/', [StaffController::class, "index"])->name("index");
         Route::delete('/delete/{id}', [StaffController::class, "destroy"])->name("destroy");
+    });
+
+    Route::prefix('ajax')->name('ajax.')->group(function () {
+        Route::get('/staff/get', [AjaxStaffController::class, "getStaff"])->name("staff.get");
     });
 });

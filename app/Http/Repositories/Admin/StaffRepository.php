@@ -31,6 +31,20 @@ class StaffRepository {
         }
     }
 
+    public function getUsersByLevel(int $level): ?Builder
+    {
+        try {
+            $users = $this->user::query();
+            if ($level != -1) {
+                $users = $users->where('level', $level);
+            }
+
+            return $users;
+        } catch (\Exception $e) {
+            return null;
+        }
+    }
+
     public function deleteUser(string $id): int
     {
         return $this->user::destroy($id);

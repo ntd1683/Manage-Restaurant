@@ -12,6 +12,7 @@ export default defineConfig({
                 "resources/js/setting.js",
                 "resources/js/profile.ts",
                 "resources/js/staff.ts",
+                "resources/js/table.ts",
                 "resources/js/preLoader.ts",
                 "resources/js/datepicker.ts",
                 "resources/js/theme.ts",
