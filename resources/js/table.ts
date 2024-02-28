@@ -70,6 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const headers : HTMLTableCellElement[]  = Array.from(table.querySelectorAll("th")).filter(header => header.textContent.trim() !== "Delete");
     // @ts-ignore
     const nameColumn = headers.map(header => header.textContent.trim());
+
     let currentSortColumn: string | null = null;
     let currentSortDirection: string | null = null;
     let counter = 0;
@@ -153,6 +154,23 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             sortTable(column, currentSortDirection);
+        });
+    });
+
+    // DELETE ROW
+    const deleteButtons = document.querySelectorAll(".btn-delete");
+    deleteButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const url = button.getAttribute("data-url");
+            const id = button.getAttribute("data-id");
+
+            if (url && id) {
+                deleteRowInTable(url, parseInt(id));
+            } else {
+                // @ts-ignore
+                openDialog({message: "Missing data-url or data-id", icon: "x"})
+                console.warn("Missing data-url or data-id");
+            }
         });
     });
 });

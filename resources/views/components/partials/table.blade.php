@@ -2,7 +2,7 @@
     <thead class="bg-default-100">
     <tr>
         @foreach($columns as $column => $value)
-            <th scope="col" onclick="test123()"
+            <th scope="col"
                 class="group px-6 py-4 text-start whitespace-nowrap text-sm font-medium text-default-500 hover:text-primary-500 cursor-pointer">
                 {{ $value }}
                 @if($column !== "delete")
@@ -22,8 +22,8 @@
                     <td class="px-6 py-4 whitespace-nowrap text-base text-default-800">{{ $row->{$column} }}</td>
                 @else
                     <td class="px-6 py-4">
-                        <x-forms.buttons onclick="deleteRowInTable('{{ $deleteUrl }}', '{{ $row->id }}')"
-                                         class="p-2 !bg-error-500 hover:!bg-error-300">{{ __("Delete") }}</x-forms.buttons>
+                        <x-forms.buttons data-url="{{ $deleteUrl }}" data-id="{{ $row->id }}"
+                                         class="p-2 !bg-error-500 hover:!bg-error-300 btn-delete">{{ __("Delete") }}</x-forms.buttons>
                     </td>
                 @endif
             @endforeach

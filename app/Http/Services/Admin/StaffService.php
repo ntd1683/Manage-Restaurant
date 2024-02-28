@@ -14,14 +14,9 @@ class StaffService
         $this->staffRepository = new StaffRepository();
     }
 
-    public function getUsers(string $key = ""): ?Builder
+    public function getUsers(string $search = "", string $date = "", int $level = -1): ?Builder
     {
-        return $this->staffRepository->getUsers($key);
-    }
-
-    public function getUsersByLevel(int $level): ?Builder
-    {
-        return $this->staffRepository->getUsersByLevel($level);
+        return $this->staffRepository->getUsers($search, $date, $level);
     }
 
     public function deleteUser(string $id): int

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Ajax;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\admin\GetStaffRequest;
 use App\Http\Services\Admin\StaffService;
 use App\Http\Traits\ResponseTrait;
 use App\Tables\StaffTable;
@@ -18,18 +19,14 @@ class StaffController extends Controller
         $this->staffService = new StaffService();
     }
 
-    public function getStaff(Request $request)
+    public function getStaff(GetStaffRequest $request)
     {
-        $users = null;
-        $type = $request->get("type") ?? 0;
         $render = $request->get("render") != null;
+        $search = $request->get("search") ?? "";
+        $date = $request->get("date") ?? "";
         $level = $request->get("level") ?? -1;
 
-        if ($type === 0) {
-            $users = $this->staffService->getUsers();
-        } else if ($type == 1) {
-            $users = $this->staffService->getUsersByLevel($level);
-        }
+        $users = $this->staffService->getUsers($search, $date, $level);
 
         if ($users == null)
             return $this->errorResponse("Get users failed");

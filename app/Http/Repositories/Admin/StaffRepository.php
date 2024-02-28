@@ -15,26 +15,20 @@ class StaffRepository {
         $this->user = new User();
     }
 
-    public function getUsers(string $key = ""): ?Builder
+    public function getUsers(string $search = "", string $date = "", int $level = -1): ?Builder
     {
         try {
             $users = $this->user::query();
-                if ($key !== "") {
-                    $users = $users->where('name','like', $key)
-                        ->orWhere('email','like', $key)
-                        ->orWhere('id_card','like', $key);
-                }
+            if(!empty($search)) {
+                $users = $users->where('name','like', "%" . $search . "%");
+//                    ->orWhere('email','like', "%" . $search . "%")
+//                    ->orWhere('id_card','like', "%" . $search . "%");
+            }
 
-                return $users;
-        } catch (\Exception $e) {
-            return null;
-        }
-    }
+            if (!empty($date)) {
+                $users = $users->whereDate('created_at', $date);
+            }
 
-    public function getUsersByLevel(int $level): ?Builder
-    {
-        try {
-            $users = $this->user::query();
             if ($level != -1) {
                 $users = $users->where('level', $level);
             }
